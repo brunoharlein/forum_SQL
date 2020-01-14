@@ -15,7 +15,17 @@ class messageModel():
         self.db.initialize_connection()
         self.db.cursor.execute("SELECT * FROM message")
         # Use fetchall to get a list
+        # Utilisez fetchall pour obtenir une liste
         messages = self.db.cursor.fetchall()
         self.db.close_connection()
         return messages
+
+    def add_message(self, author, content):
+        """Save a message in the databas with author, content and date
+            Enregistrer un message dans la base de données avec l'auteur, le contenu et la date"""
+        self.db.initialize_connection()
+        self.db.cursor.execute("INSERT INTO message (content, publishing_date, author) VALUES(%s, NOW(), %s)", (content, author))
+        self.db.connection.commit()
+        self.db.close_connection()
+
 
