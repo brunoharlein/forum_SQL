@@ -30,7 +30,8 @@ class messageView():
             print("Aucun message pour le moment")
 
     def new_message(self):
-        """Display input for the user to write a message and store values in database"""
+        """Display input for the user to write a message and store values in database
+            Affichage de l'entrée permettant à l'utilisateur d'écrire un message et de stocker des valeurs dans la base de données"""
         author = input("Quel est votre nom : ")
         content = input("Votre message : ")
         model = messageModel()
